@@ -1,7 +1,64 @@
-
 <?php
-// Onze bankrekening app
 
+
+//$aantal = $_GET['aantalleden'];
+
+$voorNaam = "me";
+$achterNaam = "string";
+$nieuwsbrief = FALSE;
+$hoeveel = $_GET['hoeveelheid'];
+
+
+
+
+
+
+for($i=0; $i<$hoeveel;$i++){
+
+echo 'Username  <input type=text/".$voorNaam."/><input type=text/".$achterNaam."/><input type="checkbox"".$nieuwsbrief."/><br>';
+
+};
+
+//echo $_GET[$voorNaam];
+//echo "$voorNaam";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Onze bankrekening app
+/*
 
 session_start();
 
@@ -48,3 +105,5 @@ function Operator($operator, $getal1, $getal2){
                     	}
 }
 ?>
+*/
+
