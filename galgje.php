@@ -13,7 +13,7 @@ if(!isset($_SESSION['levens'])){
     $_SESSION['levens'] = $aantalLevens;    
 }
 
-if(isset($_GET['letter']) && $_GET['letter']=="reset" || !isset($_SESSION['begin'])){
+if(isset($_GET['letter']) && $_GET['reset']=='reset' || !isset($_SESSION['begin'])){
     unset($_SESSION['woord']);
     unset($_SESSION['toon']);
     unset($_GET['letter']);                             //voorkomt dat het indrukken van de resetknop gezien wordt als foutieve keuze en zo een leven kost
@@ -61,9 +61,9 @@ if($_SESSION['geraden'] == FALSE && isset($_GET['letter']) && $_SESSION['levens'
     $letter = $_GET['letter'];
     $pos = 0; 
     $levenscheck = FALSE;                                   
-        foreach($_SESSION['woord'] as $x){                         //vergelijk elke letter van de array waarin het juiste woord staat met de gekozen letter
-            if($x == $letter){                              //als er een match is dan moet de letter in de juiste vakjes verschijnen
-                $_SESSION['toon'][$pos] = $letter;          //zet de letter op de juiste plaats(en) in de tabel beneden als juiste letter is gevonden                        
+        foreach($_SESSION['woord'] as $x){                          //vergelijk elke letter van de array waarin het juiste woord staat met de gekozen letter
+            if($x == $letter){                                      //als er een match is dan moet de letter in de juiste vakjes verschijnen
+                $_SESSION['toon'][$pos] = $letter;                  //zet de letter op de juiste plaats(en) in de tabel beneden als juiste letter is gevonden                        
                 $levenscheck = TRUE;
                 if($_SESSION['toon']==$_SESSION['woord']){
                     echo "woord geraden!!!!! voor het volgende spel klik RESET";
@@ -78,7 +78,7 @@ if($_SESSION['geraden'] == FALSE && isset($_GET['letter']) && $_SESSION['levens'
             
     }
 }elseif($_SESSION['levens'] < 0){
-    echo "you are dead man!";
+    echo "you are dead man!";                               
 }
 
 ?>
@@ -86,7 +86,10 @@ if($_SESSION['geraden'] == FALSE && isset($_GET['letter']) && $_SESSION['levens'
 
 function test(a){
     document.location='galgje.php?letter='+a;       //de gekozen letter wordt in de URL gezet en daardoor met php uitgelezen
-}
+};
+function reset(b){
+    document.location='galgje.php?reset='+b;
+};
 </script>
 
 <body bgcolor="blue">
@@ -143,9 +146,14 @@ function test(a){
     </table>
 </body>
 
-<!--alert("werkt");-->
+<!--
+$array = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z];
+    foreach($array as $x_value){
+        <input type="button" value="A" onclick="test('a')"/>
+}
 
 
-<!--foreach ($array as $i => $value) {          leegmaken van array
-    unset($array[$i]);
+
+
+
 }-->
